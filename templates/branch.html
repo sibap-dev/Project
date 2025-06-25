@@ -1,0 +1,180 @@
+{% extends "layout.html" %}
+{% block title %}Our Branches - Phenyle{% endblock %}
+
+{% block head %}
+<style>
+
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="branch-hero">
+    <div class="container">
+        <h1><i class="fas fa-map-marker-alt"></i> Our Growing Network</h1>
+        <p class="lead">Expanding across India to serve you better</p>
+    </div>
+</div>
+
+<div class="container">
+    <!-- Map Section -->
+    <div class="map-container animate-map">
+        <img src="{{ url_for('static', filename='images/branch.jpg') }}" 
+             alt="Phenyle Branches Map" class="map-image">
+        <div class="map-overlay">
+            <h5><i class="fas fa-map"></i> Our Network</h5>
+            <p class="mb-0"><strong>3</strong> Active Locations</p>
+            <small class="text-muted">Expanding Across Odisha</small>
+        </div>
+        <div class="map-pulse pulse-1"></div>
+        <div class="map-pulse pulse-2"></div>
+        <div class="map-pulse pulse-3"></div>
+    </div>
+
+    <!-- Branch Stats -->
+    <div class="branch-stats">
+        <div class="row">
+            <div class="col-md-4 stat-item">
+                <span class="stat-number">3</span>
+                <span>Active Branches</span>
+            </div>
+            <div class="col-md-4 stat-item">
+                <span class="stat-number">2</span>
+                <span>Direct Outlets</span>
+            </div>
+            <div class="col-md-4 stat-item">
+                <span class="stat-number">1</span>
+                <span>Distributor</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Branch Cards -->
+    <div class="row">
+        <div class="col-lg-4 col-md-6 animate-card">
+            <div class="branch-card">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="fas fa-building"></i> Bhubaneswar Branch</h5>
+                    <small>Main Office</small>
+                </div>
+                <div class="card-body">
+                    <div class="contact-info">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Plot No. 123, Industrial Estate, Bhubaneswar, Odisha</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-phone"></i>
+                        <span>+91-9876543210</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-clock"></i>
+                        <span>Mon-Sat: 9:00 AM - 6:00 PM</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 animate-card">
+            <div class="branch-card">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="fas fa-warehouse"></i> Cuttack Branch</h5>
+                    <small>Warehouse & Distribution</small>
+                </div>
+                <div class="card-body">
+                    <div class="contact-info">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Warehouse No. 5, CDA Sector-9, Cuttack, Odisha</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-phone"></i>
+                        <span>+91-9876501234</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-truck"></i>
+                        <span>Distribution Hub</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 animate-card">
+            <div class="branch-card">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="fas fa-store"></i> Berhampur Distributor</h5>
+                    <small>Authorized Partner</small>
+                </div>
+                <div class="card-body">
+                    <div class="contact-info">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Shop No. 14, Station Road, Berhampur, Odisha</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-envelope"></i>
+                        <span>distributor.bam@phenyleco.in</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-handshake"></i>
+                        <span>Retail Partner</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Expansion Notice -->
+    <div class="text-center mt-5 mb-4">
+        <div class="alert alert-info border-0" style="background: linear-gradient(135deg, #74b9ff, #0984e3); color: white; border-radius: 15px;">
+            <i class="fas fa-rocket fa-2x mb-3"></i>
+            <h4>Expanding Soon!</h4>
+            <p class="mb-0">We're planning to open new branches in Rourkela, Sambalpur, and Puri. Stay tuned!</p>
+        </div>
+    </div>
+</div>
+
+<script>
+// Enhanced scroll animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            if (entry.target.classList.contains('map-container')) {
+                entry.target.classList.add('animate-map');
+            } else {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        }
+    });
+}, observerOptions);
+
+// Initialize animations
+document.addEventListener('DOMContentLoaded', function() {
+    // Animate map
+    const mapContainer = document.querySelector('.map-container');
+    if (mapContainer) {
+        observer.observe(mapContainer);
+    }
+    
+    // Animate cards
+    document.querySelectorAll('.animate-card').forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = `all 0.6s ease ${index * 0.2}s`;
+        observer.observe(card);
+    });
+    
+    // Add loading effect to map image
+    const mapImage = document.querySelector('.map-image');
+    if (mapImage) {
+        mapImage.addEventListener('load', function() {
+            this.style.opacity = '1';
+        });
+        mapImage.style.opacity = '0';
+        mapImage.style.transition = 'opacity 0.5s ease';
+    }
+});
+</script>
+{% endblock %}

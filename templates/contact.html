@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block title %}Contact Us - Phenyle{% endblock %}
+
+{% block head %}
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+<div class="contact-section" data-aos="fade-up">
+    <h2 data-aos="zoom-in" data-aos-delay="100">Contact Us</h2>
+    <p data-aos="fade-in" data-aos-delay="200">We would love to hear from you! Please fill out the form below:</p>
+
+    <form action="{{ url_for('contact') }}" method="POST" class="row g-3">
+        <div class="col-md-6" data-aos="fade-right" data-aos-delay="300">
+            <label for="name" class="form-label">Your Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="John Doe">
+        </div>
+        <div class="col-md-6" data-aos="fade-left" data-aos-delay="300">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="john@example.com">
+        </div>
+        <div class="col-12" data-aos="fade-up" data-aos-delay="400">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" name="message" rows="4" placeholder="Write your message here..."></textarea>
+        </div>
+        <div class="col-12 text-center" data-aos="zoom-in-up" data-aos-delay="500">
+            <button type="submit" class="btn btn-primary">Send Message</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 1000, once: true });
+</script>
+{% endblock %}

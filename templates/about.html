@@ -1,0 +1,297 @@
+{% extends "layout.html" %}
+{% block title %}About - Green Shyne{% endblock %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block content %}
+<div class="about-page">
+    <!-- Hero Banner -->
+    <div class="hero-banner">
+        <img src="{{ url_for('static', filename='about/about_banner.jpg') }}" 
+             alt="About Banner" 
+             class="banner-bg-image">
+        <div class="banner-content">
+            <h1 class="banner-title">Green Shyne</h1>
+            <p class="banner-subtitle">Cleaning Excellence Since 1983</p>
+        </div>
+    </div>
+
+    <!-- Story Section -->
+    <div class="story-section">
+        <h2 class="story-title">Our Legacy Since 1983</h2>
+        <p class="story-text">
+            Green Shyne began its journey in 1983 with a vision to revolutionize 
+            the cleaning industry with premium quality products that prioritize both 
+            effectiveness and environmental responsibility.
+        </p>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">40+</div>
+                <div class="stat-label">Years of Excellence</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">1M+</div>
+                <div class="stat-label">Happy Customers</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Premium Products</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Distribution Points</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enhanced Team Section -->
+    <div class="team-section">
+        <h2 class="team-title">Meet Our Team</h2>
+        
+        <div class="team-container">
+            <div class="team-member">
+                <div class="member-avatar">
+                    <img src="{{ url_for('static', filename='about/member1.jpg') }}" 
+                         alt="Siba Prasad" 
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="avatar-fallback" style="display: none;">SP</div>
+                </div>
+                <div class="member-content">
+                    <div class="member-name">Siba Prasad</div>
+                    <div class="member-role">Server Architect & Infrastructure Specialist</div>
+                </div>
+            </div>
+
+            <div class="team-member">
+                <div class="member-avatar">
+                    <img src="{{ url_for('static', filename='about/member2.jpg') }}" 
+                         alt="Ruturaj Biswal" 
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="avatar-fallback" style="display: none;">RB</div>
+                </div>
+                <div class="member-content">
+                    <div class="member-name">Ruturaj Biswal</div>
+                    <div class="member-role">Backend Solutions Developer & API Architect</div>
+                </div>
+            </div>
+
+            <div class="team-member">
+                <div class="member-avatar">
+                    <img src="{{ url_for('static', filename='about/member3.jpg') }}" 
+                         alt="Amitesh Patnaik" 
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="avatar-fallback" style="display: none;">AP</div>
+                </div>
+                <div class="member-content">
+                    <div class="member-name">Amitesh Patnaik</div>
+                    <div class="member-role">Marketing & Outreach Lead</div>
+                </div>
+            </div>
+
+            <div class="team-member">
+                <div class="member-avatar">
+                    <img src="{{ url_for('static', filename='about/member4.jpg') }}" 
+                         alt="Anish Kumar" 
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="avatar-fallback" style="display: none;">AK</div>
+                </div>
+                <div class="member-content">
+                    <div class="member-name">Anish Kumar</div>
+                    <div class="member-role">UX Strategist & Design Innovation Lead</div>
+                </div>
+            </div>
+
+            <div class="team-member">
+                <div class="member-avatar">
+                    <img src="{{ url_for('static', filename='about/member5.jpg') }}" 
+                         alt="Amit Khuntia" 
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="avatar-fallback" style="display: none;">AK</div>
+                </div>
+                <div class="member-content">
+                    <div class="member-name">Amit Khuntia</div>
+                    <div class="member-role">QA & Testing Specialist</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mission & Vision -->
+    <div class="mission-vision">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="mission-card">
+                        <div class="text-center mb-3">
+                            <i class="bi bi-bullseye display-1 text-warning"></i>
+                        </div>
+                        <h3 class="text-center mb-3">Our Mission</h3>
+                        <p class="text-center">
+                            To provide innovative, eco-friendly cleaning solutions that exceed 
+                            customer expectations while contributing to a healthier environment.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="vision-card">
+                        <div class="text-center mb-3">
+                            <i class="bi bi-eye display-1 text-info"></i>
+                        </div>
+                        <h3 class="text-center mb-3">Our Vision</h3>
+                        <p class="text-center">
+                            To become India's most beloved and trusted cleaning brand, 
+                            setting new standards in product innovation and environmental responsibility.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Enhanced Intersection Observer for animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                entry.target.classList.add('animated');
+            }
+        });
+    }, observerOptions);
+    
+    // Enhanced Team Member Animation Observer
+    const teamObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const teamMembers = entry.target.querySelectorAll('.team-member');
+                teamMembers.forEach((member, index) => {
+                    setTimeout(() => {
+                        member.classList.add('animate-in');
+                    }, index * 150);
+                });
+                teamObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    const teamSection = document.querySelector('.team-section');
+    if (teamSection) {
+        teamObserver.observe(teamSection);
+    }
+    
+    // Apply animations to other elements
+    document.querySelectorAll('.stat-card, .mission-card, .vision-card').forEach(el => {
+        if (!el.style.opacity) {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+        }
+        observer.observe(el);
+    });
+
+    // Enhanced counter animation with stagger
+    const animateCounters = () => {
+        document.querySelectorAll('.stat-number').forEach((counter, index) => {
+            setTimeout(() => {
+                const target = parseInt(counter.textContent.replace(/\D/g, ''));
+                const suffix = counter.textContent.replace(/\d/g, '');
+                let current = 0;
+                const increment = target / 80;
+                const duration = 2500;
+                const stepTime = duration / 80;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.textContent = target + suffix;
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = Math.floor(current) + suffix;
+                    }
+                }, stepTime);
+            }, index * 200);
+        });
+    };
+
+    // Trigger counters when stats section is visible
+    const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                setTimeout(animateCounters, 500);
+                statsObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 });
+
+    const statsGrid = document.querySelector('.stats-grid');
+    if (statsGrid) {
+        statsObserver.observe(statsGrid);
+    }
+
+    // Enhanced smooth scrolling for team container
+    const teamContainer = document.querySelector('.team-container');
+    if (teamContainer) {
+        let isScrolling = false;
+        
+        teamContainer.addEventListener('wheel', (e) => {
+            if (!isScrolling && teamContainer.scrollWidth > teamContainer.clientWidth) {
+                e.preventDefault();
+                isScrolling = true;
+                teamContainer.scrollLeft += e.deltaY * 2;
+                setTimeout(() => { isScrolling = false; }, 100);
+            }
+        });
+
+        // Add touch scrolling support for mobile
+        let startX = 0;
+        let scrollLeft = 0;
+
+        teamContainer.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].pageX - teamContainer.offsetLeft;
+            scrollLeft = teamContainer.scrollLeft;
+        });
+
+        teamContainer.addEventListener('touchmove', (e) => {
+            e.preventDefault();
+            const x = e.touches[0].pageX - teamContainer.offsetLeft;
+            const walk = (x - startX) * 2;
+            teamContainer.scrollLeft = scrollLeft - walk;
+        });
+    }
+
+    // Image loading optimization
+    const images = document.querySelectorAll('.member-avatar img');
+    images.forEach(img => {
+        img.addEventListener('load', function() {
+            this.style.opacity = '1';
+        });
+        
+        img.addEventListener('error', function() {
+            this.style.display = 'none';
+            this.nextElementSibling.style.display = 'flex';
+        });
+    });
+
+    // Add parallax effect to hero banner
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const parallax = document.querySelector('.banner-bg-image');
+        if (parallax) {
+            const speed = scrolled * 0.5;
+            parallax.style.transform = `translateY(${speed}px)`;
+        }
+    });
+});
+</script>
+{% endblock %}

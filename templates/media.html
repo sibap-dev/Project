@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block title %}Media - Phenyle{% endblock %}
+
+{% block head %}
+<!-- AOS Animation CSS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+<div class="container gallery-section">
+    <h2 class="gallery-title" data-aos="fade-down">Media Gallery</h2>
+    <p class="gallery-description" data-aos="fade-up">Have a look at some of our promotional images:</p>
+    <div class="row justify-content-center">
+        <div class="col-sm-10 col-md-6 col-lg-4 mb-4 d-flex justify-content-center" data-aos="zoom-in" data-aos-delay="100">
+            <img src="{{ url_for('static', filename='images/3d-sol.png') }}" class="img-fluid gallery-img" alt="Gallery 1">
+        </div>
+        <div class="col-sm-10 col-md-6 col-lg-4 mb-4 d-flex justify-content-center" data-aos="zoom-in" data-aos-delay="200">
+            <img src="{{ url_for('static', filename='images/slide1.png') }}" class="img-fluid gallery-img" alt="Gallery 2">
+        </div>
+        <div class="col-sm-10 col-md-6 col-lg-4 mb-4 d-flex justify-content-center" data-aos="zoom-in" data-aos-delay="300">
+            <img src="{{ url_for('static', filename='images/slide3.png') }}" class="img-fluid gallery-img" alt="Gallery 3">
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!-- AOS Animation JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true
+  });
+</script>
+{% endblock %}

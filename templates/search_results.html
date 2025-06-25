@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block title %}Search Results{% endblock %}
+{% block content %}
+<h2>Search Results for "{{ query|title }}"</h2>
+{% if result %}
+<div class="alert alert-success">
+    <strong>{{ query|title }}</strong>: {{ result }}
+</div>
+{% else %}
+<p>No result found for your selection.</p>
+{% endif %}
+{% endblock %}
