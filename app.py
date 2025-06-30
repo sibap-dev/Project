@@ -5,12 +5,11 @@ from dotenv import load_dotenv
 import os
 import random
 
-# Load environment variables from .env
 load_dotenv()
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')  # No quotes needed here
-# Routes
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY') 
+
 @app.route("/")
 @app.route("/home")
 def home():
